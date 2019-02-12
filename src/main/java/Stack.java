@@ -9,7 +9,10 @@ public class Stack<T> {
 
     }
 
-    public Stack(int size) {
+    public Stack(int size) throws TooLowSizeException{
+        if(size <= 0) {
+            throw new TooLowSizeException("Size of stack is too low!");
+        }
         this.stack = (T[]) new Object[size];
         this.maximumCapacity = size;
         this.index = 0;
